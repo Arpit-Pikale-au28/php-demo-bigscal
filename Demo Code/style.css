@@ -1,0 +1,60 @@
+nav .nav-options #logo {
+     margin-top: 20px;
+    height: 50px;
+    float: left;
+    display: inline-block;
+}
+
+nav .nav-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 30px;
+    list-style: none;
+}
+nav  .nav-options li {
+     padding: 25px 50px; 
+     color: #393E46;
+     cursor: pointer;
+}
+
+nav .nav-options li:hover{
+    color: #3CCF4E;
+}
+nav .nav-right-content a:hover{
+color: #3CCF4E;
+}
+
+nav  .nav-right-content{
+    padding-top: 20px;
+}
+
+nav  .nav-right-content button{
+    margin-left: 30px;
+     background-color: #3CCF4E;
+    color: white;
+    height: 52px;
+    width: 175px;
+    border-radius: 7px;
+    border: none;
+     cursor: pointer;
+
+}
+nav .nav-right-content a {
+    color: #393E46;
+    text-decoration: none;
+   
+}
+
+
+.mainContainer {
+    margin: 0px 150px;
+}
+
+.mainContainer .first-container .first-container-content {
+    display: inline-block;
+}
+
+.mainContainer .first-container  .first-container-content-image  {
+    display: inline-block;
+}

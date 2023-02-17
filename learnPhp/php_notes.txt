@@ -1,0 +1,369 @@
+Php notes :: ==>
+
+get_debug_type() differs from gettype() in that it returns type names that are more consistent with actual usage, rather than those present for historical reasons.
+
+to delcare array in php 
+$languages = array("C", "C++", "Python", "javascript")
+
+echo $languages  // this will get an error because whole array will not printed on the browser
+to print array item we can print using its index value.
+like $languages[0]  // C
+$languages[1] // C++
+
+to get length of an array use count($languages) // 4
+
+differnce between while and do while loop is 
+In While loop first check the condition then code will be executed
+In do- while loop first the code will executed in do block then the condition will be checked in while block
+
+for each ==>
+foreach ($languages as $value){
+   echo "<br> the value of form foreach loop is "
+   echo $value
+}
+
+
+#Strings ==> 
+ strlen(StringName) // returns the no of charcter in string
+ str_word_count($str) // returns words counts
+
+typecasting in php =>
+$a = 1;
+var_dump($a);
+  
+// int to float
+$a = (float) $a;
+var_dump($a);
+  
+// float to double
+$a = (double) $a;
+var_dump($a);
+  
+// double to real
+$a = (real) $a;
+var_dump($a);
+  
+// real to int
+$a = (int) $a;
+var_dump($a);
+  
+// int to integer
+$a = (integer) $a;
+var_dump($a);
+  
+// integer to bool
+$a = (bool) $a;
+var_dump($a);
+  
+// bool to boolean
+$a = (boolean) $a;
+var_dump($a);
+  
+// boolean to string
+$a = (string) $a;
+var_dump($a);
+  
+// string to array
+$a = (array) $a;
+var_dump($a);
+  
+// array to object
+$a = (object) $a;
+var_dump($a);
+  
+// object to unset/NULL
+$a = (unset) $a;
+var_dump($a);
+  
+?>
+
+php constants ==> 
+A constant is an identifier (name) for a simple value. As the name suggests, that value cannot change during the execution of the script (except for magic constants, which aren't actually constants). Constants are case-sensitive. By convention, constant identifiers are always uppercase.
+define("FOO",     "something");
+define("FOO2",    "something else");
+define("FOO_BAR", "something more");
+
+
+Arrays ==.
+
+multidimensional arrays :
+<?php
+$array = array(
+    "foo" => "bar",
+    42    => 24,
+    "multi" => array(
+         "dimensional" => array(
+             "array" => "foo"
+         )
+    )
+);
+
+var_dump($array["foo"]);
+var_dump($array[42]);
+var_dump($array["multi"]["dimensional"]["array"]);
+?>
+
+array methods 
+
+<?php
+$arr = array(5 => 1, 12 => 2);
+
+$arr[] = 56;    // This is the same as $arr[13] = 56;
+                // at this point of the script
+
+$arr["x"] = 42; // This adds a new element to
+                // the array with key "x"
+                
+unset($arr[5]); // This removes the element from the array
+
+unset($arr);    // This deletes the whole array
+?>
+
+Array destructuring can be used in foreach to destructure a multi-dimensional array while iterating over it.
+
+<?php
+$source_array = [
+    [1, 'John'],
+    [2, 'Jane'],
+];
+
+foreach ($source_array as [$id, $name]) {
+    // logic here with $id and $name
+}
+?>
+
+The unset() function allows removing keys from an array. Be aware that the array will not be reindexed. If a true "remove and shift" behavior is desired, the array can be reindexed using the array_values() function.
+
+Variables ==>
+
+<?php
+
+  //You can even add more Dollar Signs
+
+  $Bar = "a";
+  $Foo = "Bar";
+  $World = "Foo";
+  $Hello = "World";
+  $a = "Hello";
+
+  $a; //Returns Hello
+  $$a; //Returns World
+  $$$a; //Returns Foo
+  $$$$a; //Returns Bar
+  $$$$$a; //Returns a
+
+  $$$$$$a; //Returns Hello
+  $$$$$$$a; //Returns World
+  
+  Generate Error ==>
+  
+  <?php
+/* Intentional file error */
+$my_file = @file ('non_existent_file') or
+    die ("Failed opening file: error was '" . error_get_last()['message'] . "'");
+
+// this works for any expression, not just functions:
+$value = @$cache[$key];
+// will not issue a notice if the index $key doesn't exist.
+
+?>
+
+Functions in php =>
+
+What is A Closure ??
+A Closure is a function that can call itself, even when it has finished executing. In other words, Closure is a function that can access variables outside its own scope.
+This is made possible through a process in which the function remembers and “closes over” its surrounding variables, even after it has finished executing.
+
+Function Calling Itself
+(function() {
+    echo "hello World";
+}) ();
+
+To use the variables from the parent scope inside an anonymous function, you place the variables in the use construct as follows:
+
+<?php
+function init()
+{
+    $name = "Hello php";
+    (function () use ($name) {
+
+        echo $name;
+    })();
+}
+init();
+
+?>
+
+Return an anonymous function from a function:
+
+<?php
+
+function multiplier($x)
+{
+	return function ($y) use ($x) {
+		return $x * $y;
+	};
+}
+
+$double = multiplier(2);
+echo $double(100); // 200
+
+$tripple = multiplier(3);
+echo $tripple(100); // 300
+
+#Advance Arrays Opertaions ==> 
+Syantax :  array_map ( callable|null $callback , array $array , array ...$arrays ) : array;
+The array_map() has the following parameters:
+
+$callback – a callable to apply to each element in each array.
+$array – is an array of elements to which the callback function applies.
+$arrays – is a variable list of array arguments to which the callback function applies.
+The array_map() function returns a new array whose elements are the result of the callback function.
+
+<?php
+
+$lengths = [10, 20, 30];
+
+$areas = array_map(function ($length) {
+    return $length * $length;
+}, $lengths);
+
+print_r($areas)
+
+?>
+
+Similarly for arr_filter ==> 
+array_filter($items,[$instance,'callback']);
+<?php
+
+$numbers = [1, 2, 3, 4, 5];
+
+$even_numbers = array_filter(
+	$numbers,
+	function ($number) {
+		return $number % 2 === 0;
+	}
+);
+
+print_r($even_numbers);
+
+Sometimes, you want to pass the key, not value, to the callback function. In this case, you can pass ARRAY_FILTER_USE_KEY as the third argument of the array_filter() function. For example:
+<?php
+
+$inputs = [
+	'first' => 'John',
+	'last' => 'Doe',
+	'password' => 'secret',
+	'email' => 'john.doe@example.com'
+];
+
+$filtered = array_filter(
+	$inputs,
+	fn ($key) => $key !== 'password',
+	ARRAY_FILTER_USE_KEY
+);
+
+print_r($filtered);
+
+To pass both the key and value of the element to the callback function, you pass the ARRAY_FILTER_USE_BOTH value as the third argument of the array_filter() function. For example:
+<?php
+
+$inputs = [
+	'first' => 'John',
+	'last' => 'Doe',
+	'password' => 'secret',
+	'email' => ''
+];
+
+$filtered = array_filter(
+	$inputs,
+	fn ($value, $key) => $value !== '' && $key !== 'password',
+	ARRAY_FILTER_USE_BOTH
+);
+
+print_r($filtered);
+
+#array_reduce ==>
+array_reduce ( array $array , callable $callback , mixed $initial = null ) : mixed
+
+<?php
+
+$numbers = [10,20,30];
+
+$total  = array_reduce($numbers, function ($previous, $current) {
+    return $previous + $current;
+});
+
+echo $total; // 60
+
+here $previous is the result of the previous function call, equals initial the first time (if initial is provided).
+$current will the value changes each iteration
+
+#forms in php ==> 
+
+In PHP, you can use the isset() to check if the form data contains the email:
+
+<?php
+
+if(isset($_GET['email']) {
+    // process email
+}
+
+<?php
+
+require __DIR__ . '/inc/header.php';
+
+$request_method = strtoupper($_SERVER['REQUEST_METHOD']); //this method will get the methodnm get/post
+
+if ($request_method === 'GET') {
+	require __DIR__ . '/inc/get.php';
+} elseif ($request_method === 'POST') {
+	require __DIR__ .  '/inc/post.php';
+}
+
+require __DIR__ .  '/inc/footer.php';
+
+ check the name variable in the post request
+ syntax    === if (filter_has_var(INPUT_POST, 'name')) 
+ difference betweeen isser() and filter_has_var()
+ The isset() function returns true if a variable is declared and not null. 
+ Unlike the isset() function, the filter_has_var() function doesn’t read the contents of the $_POST array. It checks the variables in the request’s body. Therefore, the following example returns false:
+
+#Variable constructs ==> 
+1. PHP isset() => PHP isset() returns true if a variable is set and not null.
+
+isset() is a language construct, not a function.
+isset() returns true if a variable is set and not null.
+isset() returns true if an array element exists and not null.
+isset() returns true if a string index valid or false otherwise.
+isset() returns true if all variable are set and not null. It’ll stop evaluating once it encounter an unset variable.
+
+2. PHP empty() ==>
+The empty() function checks whether a variable is empty or not.
+
+This function returns false if the variable exists and is not empty, otherwise it returns true.
+
+The following values evaluates to empty:
+
+0
+0.0
+"0"
+""
+NULL
+FALSE
+array()
+
+3. is_null() ==>   
+PHP is_null() accepts a variable and returns true if that variable is null. Otherwise, it returns false.
+
+isset – return true if a variable is set and not null.
+empty – returns true if a variable does not exist or is false.
+is_null – returns true if a variable does not exist or is null.
+
+#INCLUDE & REQUIRE ==>
+include 'path_to_file';
+Use require construct to load the code from another file into the script.
+Use require_once construct to load the code from another file once and won’t include the file again if the file has been loaded.
+The require and require_once are language constructs, not functions.
+
+The include_once keyword is used to embed PHP code from another file. If the file is not found, a warning is shown and the program continues to run. If the file was already included previously, this statement will not include it again.
