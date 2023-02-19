@@ -45,7 +45,7 @@ nav .nav-right-content a {
 }
 
 .mainContainer {
-  margin: 0px 150px;
+  margin: 0px 108px;
 }
 
 .first-container-content {
@@ -62,8 +62,10 @@ nav .nav-right-content a {
 
 .first-container-content-image {
   display: inline-block;
-  position: relative;
-  left: 38px;
+}
+
+.first-container-content-image img {
+  width: 400px;
 }
 
 .first-container button {
@@ -105,11 +107,10 @@ nav .nav-right-content a {
 }
 
 .fourth-container button {
-  width: 190px;
-  height: 65px;
+  width: 167px;
+  height: 64px;
   border: none;
   border-radius: 22px;
-  padding: 10px;
 }
 
 .fourth-container button:hover {
@@ -117,8 +118,8 @@ nav .nav-right-content a {
   color: white;
 }
 .fourth-container #first-button {
-    background-color: #3ccf4e;
-    color: white;
+  background-color: #3ccf4e;
+  color: white;
 }
 
 .fifth-container {
@@ -127,24 +128,19 @@ nav .nav-right-content a {
 
 .fifth-container-content {
   width: 374px;
-    display: inline-block;
-    position: relative;
-    bottom: 131px;
-
+  display: inline-block;
+  position: relative;
+  bottom: 131px;
 }
-
 
 .fifth-container-image {
   display: inline-block;
-  width: 361px;
 }
 
-.fifth-container-content .left{
-   display: inline-block;
-   width: 100px;
+.fifth-container-image img {
+  width: 440px;
 }
 
-.fifth-container-content .right{
-  display: inline-block;
-  width: 100px;
+.fifth-container-others {
+  display: flex;
 }
