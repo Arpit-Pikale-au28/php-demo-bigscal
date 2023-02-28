@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <form action= "<?php $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
+        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
             <input type="email" name="email" placeholder="email"><br>
             <input type="password" name="password" placeholder="password"><br>
             <input type="file" name="image" id="img"> <br>
@@ -18,11 +18,12 @@
         </form>
     </div>
     <?php
-    if(isset($_FILES["image"])) {
-       $file_name = $_FILES['image']['name'];
-       $file_size = $_FILES['image']['size'];
-       $file_tmpnm = $_FILES['image']['tmp_name'];
+    if (isset($_FILES["image"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+        $file_name = $_FILES['image']['name'];
+        $file_size = $_FILES['image']['size'];
+        $file_tmpnm = $_FILES['image']['tmp_name'];
 
+        move_uploaded_file($file_tmpnm, "uploads/$file_name");
     }
     ?>
 </body>
