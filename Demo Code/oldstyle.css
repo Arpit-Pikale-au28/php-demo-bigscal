@@ -1,5 +1,6 @@
 nav {
   display: flex;
+  margin: 0px 200px;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -12,7 +13,6 @@ nav img {
 
 nav .nav-options {
   display: flex;
-  flex-wrap: wrap;
   list-style: none;
   width: 60%;
   justify-content: space-around;
@@ -41,15 +41,12 @@ nav .nav-right-content a {
 }
 
 .mainContainer {
-  /* margin: 0px 200px; */
-  padding: 0px 50px;
-  background-color: #ffffff;
+  margin: 0px 200px;
 }
 
 .first-container {
   margin: 100px 0px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 .first-container-content {
@@ -167,12 +164,15 @@ nav .nav-right-content a {
 
 .fifth-container-others {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding-left: 3px;
 }
 
 .sixth-container {
+  max-width: 80%;
+  margin: auto;
   min-height: 555px;
+  margin-top: 40px;
 }
 
 .sixth-container .left {
@@ -194,9 +194,7 @@ nav .nav-right-content a {
 
 .sixth-container p {
   text-align: justify;
-  color: #0b2230;
-  line-height: 1.4;
-  font-size: larger;
+  color: #73777b;
 }
 
 .sixth-container h3 {
@@ -247,72 +245,4 @@ nav .nav-right-content a {
 .sixth-container .right .R2 div:hover {
   background-color: #33bb43;
   color: white;
-}
-
-.seventh-container {
-  text-align: center;
-  margin-top: 100px;
-}
-
-.seventh-container span {
-  font-size: 44px;
-  font-family: "Lexend Deca", sans-serif;
-  color: #0b2230;
-}
-
-.seventh-container p {
-  line-height: 1.4;
-  font-size: larger;
-  color: #0b2230;
-}
-
-.seventh-container .boxes {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.seventh-container .box img {
-  height: 70px;
-  width: 70px;
-}
-.seventh-container .box {
-  width: 340px;
-  height: 240px;
-  border: 1px solid #e6e6e6;
-  margin: 25px 0px;
-  padding: 20px 0px;
-  background-color: white;
-  border-radius: 7px;
-}
-
-.eight-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.eight-container .img img {
-  width: 450px;
-}
-.eight-container .content {
-  width: 440px;
-}
-
-.eight-container .content span {
-  font-size: 44px;
-  font-family: "Lexend Deca", sans-serif;
-  color: #0b2230;
-}
-
-.eight-container .content p {
-  line-height: 1.4;
-  font-size: larger;
-  color: #0b2230;
-}
-
-.nineth-container {
-  display: flex;
-  flex-wrap: wrap;
 }
