@@ -27,14 +27,25 @@
             $file_size = $_FILES['files']['size'];
             $file_tmpnm = $_FILES['files']['tmp_name'];
 
-            print_r($_POST["files"]);
+            $files = $_FILES['files'];
 
-            if ($file_size > MAX_SIZE) {
-                echo "The file Is to big to upload";
-            } else {
-                echo "<script>alert('file uploaded successfully')</script>";
-            }
+            $count = count($_FILES['files']['name']) ;
+            echo ($count . " file uploaded successfully");
+
+
+            for ($i = 0; $i < $count; $i++) {
+                $count1 = $_FILES['files']['name'][$i];
+                move_uploaded_file($_FILES['files']['tmp_name'][$i], 'uploads/'. $count1);
+            };
         }
+            
+            // print_r($_POST["files"]);
+
+            // if ($file_size > MAX_SIZE) {
+            //     echo "The file Is to big to upload";
+            // } else {
+            //     echo "<script>alert('file uploaded successfully')</script>";
+            // }
         ?>
   </body>
 

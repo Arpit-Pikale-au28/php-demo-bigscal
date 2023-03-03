@@ -13,7 +13,7 @@
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
             <input type="email" name="email" placeholder="email"><br>
             <input type="password" name="password" placeholder="password"><br>
-            <input type="file" name="image" id="img"> <br>
+            <input type="file" name="image[]" multiple id="img"> <br>
             <input type="submit" value="sumbit" name="submit">
         </form>
     </div>
@@ -22,6 +22,7 @@
         $file_name = $_FILES['image']['name'];
         $file_size = $_FILES['image']['size'];
         $file_tmpnm = $_FILES['image']['tmp_name'];
+        print_r($file_name[0], $file_size[0], $file_tmpnm[0]); 
 
         move_uploaded_file($file_tmpnm, "uploads/$file_name");
     }

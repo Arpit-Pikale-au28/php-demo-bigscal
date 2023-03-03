@@ -3,6 +3,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  padding: 0px 180px;
 }
 
 nav img {
@@ -42,7 +43,7 @@ nav .nav-right-content a {
 
 .mainContainer {
   /* margin: 0px 200px; */
-  padding: 0px 50px;
+  padding: 0px 180px;
   background-color: #ffffff;
 }
 
@@ -162,13 +163,25 @@ nav .nav-right-content a {
 }
 
 .fifth-container-image img {
-  width: 495px;
+  width: 520px;
+  position: relative;
+  top: 40px;
 }
 
 .fifth-container-others {
   display: flex;
   flex-wrap: wrap;
   padding-left: 3px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.fifth-container-others .left {
+  width: 220px;
+}
+
+.fifth-container-others .right {
+  width: 220px;
 }
 
 .sixth-container {
@@ -206,6 +219,7 @@ nav .nav-right-content a {
 
 .sixth-container .right {
   display: inline-block;
+  margin-left: 114px;
 }
 
 .sixth-container .right .R1 div {
@@ -251,7 +265,7 @@ nav .nav-right-content a {
 
 .seventh-container {
   text-align: center;
-  margin-top: 100px;
+  margin: 100px 100px;
 }
 
 .seventh-container span {
@@ -270,7 +284,7 @@ nav .nav-right-content a {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .seventh-container .box img {
@@ -291,13 +305,14 @@ nav .nav-right-content a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 100px 0px;
 }
 
 .eight-container .img img {
-  width: 450px;
+  width: 600px;
 }
 .eight-container .content {
-  width: 440px;
+  width: 46%;
 }
 
 .eight-container .content span {
@@ -309,10 +324,31 @@ nav .nav-right-content a {
 .eight-container .content p {
   line-height: 1.4;
   font-size: larger;
-  color: #0b2230;
+  color: #666363;
 }
 
 .nineth-container {
+  margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.nineth-container .img img {
+  width: 600px;
+}
+.nineth-container .content {
+  width: 46%;
+}
+
+.nineth-container .content span {
+  font-size: 44px;
+  font-family: "Lexend Deca", sans-serif;
+  color: #0b2230;
+}
+
+.nineth-container .content p {
+  line-height: 1.4;
+  font-size: larger;
+  color: #666363;
 }
