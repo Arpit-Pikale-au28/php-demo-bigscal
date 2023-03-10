@@ -19,7 +19,7 @@
                 $_SESSION['userId'] = $_POST['userId'];
                 header("Location:dashboard.php");
             } else {
-               echo '<script>alert("Invalid Usernamne/Passsword")</script>';
+               echo '<script>alert("Invalid Username/Passsword")</script>';
             }
         }
 ?>

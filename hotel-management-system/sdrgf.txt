@@ -1,1 +1,27 @@
- id, fname, lname, email, mobile, gender, arrival_Date, arrival_Time,  departute_Date, departure_Time, noOfAdults, noOfChildren, aadharNo, comments
+create database hotelmanagement;
+use hotelmanagement;
+create table adminlogin(
+userId varchar(20) primary key,
+password varchar(100) not null
+);
+
+
+insert into adminlogin(userId, password) values ('admin', '$2y$10$SoLs69tJokCBrvrC5To4au6M1.L.VKC0ntiGX04r4vOtCDJS8rvje');
+create table hotelReservation(
+id int auto_increment primary key,
+fname varchar(10),
+lname varchar(10),
+email varchar(30),
+mobile  varchar(10),
+gender varchar(10),
+arrival_Date date,
+arrival_Time time, 
+departute_Date date,
+departure_Time time,
+noOfAdults  int,
+noOfChildren int,
+aadharNo varchar(20),
+comments varchar(100)
+);
+
+d
