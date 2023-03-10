@@ -1,0 +1,56 @@
+#logo {
+    height: 50px;
+    width: 50px;
+    margin: 0px 15px;
+}
+
+.main-menu {
+   width: 280px;
+    background-color: black;
+    height: 800px;
+    list-style: none;
+    padding: 17px 25px;
+}
+
+.main-menu li a {
+    text-decoration: none;
+    color: white;
+    margin: 20px 0px;
+}
+
+.main-menu li {
+    padding: 15px 0px;
+}
+
+.main-menu i {
+    font-size: large;
+    padding-right: 10px;
+    color: #888686;
+}
+
+.main-container {
+    display: flex;
+}
+
+
+.dashboard-records {
+    display: flex;
+    justify-items: center;
+}
+
+.records {
+   height: 200px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    margin: 10px;
+    box-shadow: 5px 10px #888888;
+}
+
+.records h3{
+    color: #F7C04A;
+}
