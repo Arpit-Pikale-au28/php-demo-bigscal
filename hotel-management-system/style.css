@@ -5,11 +5,11 @@
 }
 
 .main-menu {
-   width: 280px;
+    width: 254px;
     background-color: black;
-    height: 800px;
+    min-height: 100vh;
     list-style: none;
-    padding: 17px 25px;
+    padding: 17px 38px;
 }
 
 .main-menu li a {
@@ -40,7 +40,7 @@
 
 .records {
    height: 200px;
-    width: 400px;
+    width: 360px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

@@ -12,7 +12,7 @@
                     <a class="nav-link active text-light px-4" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  px-4" href="#">Link</a>
+                    <a class="nav-link text-light px-4" href="#">About</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right text-light px-2">
