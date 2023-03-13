@@ -3,50 +3,50 @@ session_start();
 if (!isset($_SESSION['userId'])) {
     header("Location:index.php");
 }
-  if(isset($_POST['submit'])){
-         $fname = $_POST['fname'];
-         $lname = $_POST['lname'];
-         $email = $_POST['email'];
-         $mobile = $_POST['mobile'];
-         $gender = $_POST['gender'];
-         $arrDt  = $_POST['arrival-date&time'];
-         $deptDt = $_POST['departure-date&time'];
-         $noOfAdults = $_POST['no-of-adults'];
-         $noOfChildren = $_POST['no-of-children'];
-         $aadharNo = $_POST['aadharcard'];
-         $comments = $_POST['comments'];
+if (isset($_POST['submit'])) {
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $mobile = $_POST['mobile'];
+    $gender = $_POST['gender'];
+    $arrDt  = $_POST['arrival-date&time'];
+    $deptDt = $_POST['departure-date&time'];
+    $noOfAdults = $_POST['no-of-adults'];
+    $noOfChildren = $_POST['no-of-children'];
+    $aadharNo = $_POST['aadharcard'];
+    $comments = $_POST['comments'];
 
-         [$arrDt, $arrTime]= explode('T' ,$arrDt );
-         [$deptDt, $deptTime] = explode('T', $deptDt);
+    [$arrDt, $arrTime] = explode('T', $arrDt);
+    [$deptDt, $deptTime] = explode('T', $deptDt);
 
-        try {
-            require './models/dbconnection.php';
+    try {
+        require './models/dbconnection.php';
 
-            $sql = 'insert into hotelReservation(fname, lname, email, mobile, gender, arrival_Date, arrival_Time,  departute_Date, departure_Time, noOfAdults, noOfChildren, aadharNo, comments) values 
+        $sql = 'insert into hotelReservation(fname, lname, email, mobile, gender, arrival_Date, arrival_Time,  departute_Date, departure_Time, noOfAdults, noOfChildren, aadharNo, comments) values 
             (:fname, :lname, :email, :mobile, :gender, :arrDt, :arrTime, :deptDt, :deptTime, :noOfAdults, :noOfChildren, :aadharNo, :comments )';
 
-            $statement = $PDO->prepare($sql);
+        $statement = $PDO->prepare($sql);
 
-            $statement->execute([
-                ':fname'  => $fname,
-                ':lname'  => $lname,
-                ':email'  => $email,
-                ':mobile'  => $mobile,
-                ':gender'  => $gender,
-                ':arrDt'  =>  $arrDt,
-                ':arrTime' => $arrTime,
-                ':deptDt'  => $deptDt,
-                ':deptTime' =>  $deptTime,
-                ':noOfAdults'  => $noOfAdults,
-                ':noOfChildren'  => $noOfChildren,
-                ':aadharNo'  => $aadharNo,
-                ':comments'  => $comments
-            ]);
-           echo "<script> alert('User Registerd !!')</script>";
-        }catch(PDOException $e) {
-             echo "<script> alert(" . $e->getMessage() . ")</script>";
-        }
-  } 
+        $statement->execute([
+            ':fname'  => $fname,
+            ':lname'  => $lname,
+            ':email'  => $email,
+            ':mobile'  => $mobile,
+            ':gender'  => $gender,
+            ':arrDt'  =>  $arrDt,
+            ':arrTime' => $arrTime,
+            ':deptDt'  => $deptDt,
+            ':deptTime' =>  $deptTime,
+            ':noOfAdults'  => $noOfAdults,
+            ':noOfChildren'  => $noOfChildren,
+            ':aadharNo'  => $aadharNo,
+            ':comments'  => $comments
+        ]);
+        echo "<script> alert('User Registerd !!')</script>";
+    } catch (PDOException $e) {
+        echo "<script> alert(" . $e->getMessage() . ")</script>";
+    }
+}
 
 ?>
 
@@ -62,7 +62,7 @@ if (!isset($_SESSION['userId'])) {
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Welcome to Star Hotel</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="p-0 m-0 border-0 bd-example">
