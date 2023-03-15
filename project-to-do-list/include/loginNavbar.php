@@ -16,8 +16,9 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="nav-link text-light px-2" href="user/register.php"><i class="fa-solid fa-user-plus"></i> SignUp</a></li>
-                <li><a class="nav-link text-light px-4" href="user/login.php"><i class="fa-solid fa-right-to-bracket"></i> Login</a></li>
+                <p class="text-light mt-3">welcome <?php session_start(); echo $_SESSION['email']; ?></p>
+                <a href="../user/logout.php" class="btn btn-danger m-3" tabindex="-1" role="button" aria-disabled="true">Logout</a>
+
             </ul>
         </div>
     </div>
