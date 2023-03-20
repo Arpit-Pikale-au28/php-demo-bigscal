@@ -22,21 +22,21 @@ $columns = [
 $conn->createTable($table_name, $columns);
 
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
 
-  $fname = $_POST["fname"];
-  $lname = $_POST["lname"];
-  $email = $_POST["email"];
-  $gender = $_POST["gender"];
-  $state = $_POST["state"];
-  $password = $_POST["password"];
-  $image = $_FILES["inputfile"];
-  $agree_terms = $_POST["agree_terms"];
+    $fname = $_POST["fname"];
+    $lname = $_POST["lname"];
+    $email = $_POST["email"];
+    $gender = $_POST["gender"];
+    $state = $_POST["state"];
+    $password = $_POST["password"];
+    $image = $_FILES["inputfile"];
+    $agree_terms = $_POST["agree_terms"];
 
-  
 
-  // file uploads
-  include './fileUploader.php';
+
+    // file uploads
+    include './fileUploader.php';
     $uploadedFile = "";
     if (file_exists($image['tmp_name'])) {
         $allowedExtension = array("png", "jpg", "jpeg", "gif");
@@ -44,9 +44,8 @@ if(isset($_POST['submit'])){
         $uploadedFile = $uploader->upload($image);
         $data['image'] = $uploadedFile;
     }
-
     // insert a record into database
-     $data = [
+    $data = [
         "fname" => $fname,
         "lname" => $lname,
         "email" => $email,
@@ -55,8 +54,11 @@ if(isset($_POST['submit'])){
         "password" => $password,
         "image" => $uploadedFile,
         "agree_terms" => $agree_terms,
-     ];
-    //$conn->insert_values($table_name, $data);
+    ];
+    $insertedData = $conn->insert_values($table_name, $data);
+    if ($insertedData) {
+        echo "<script>alert('User Registered')</script>";
+    }
 }
 
 
@@ -124,7 +126,7 @@ if(isset($_POST['submit'])){
             </div>
             <div class="mb-3">
                 <label for="inputState" class="form-label">State</label>
-                <select id="inputState" name="state" class="form-select">
+                <select id="inputState" id="choosefile" name="state" class="form-select">
                     <option selected>Choose...</option>
                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -141,6 +143,7 @@ if(isset($_POST['submit'])){
                     <option value="Madhya Pradesh">Madhya Pradesh</option>
                     <option value="Maharashtra">Maharashtra</option>
                 </select>
+                <p id="selectError"></p>
             </div>
 
             <div class="mb-3">
@@ -171,12 +174,14 @@ if(isset($_POST['submit'])){
             <div class="d-flex justify-content-center">
                 <button type="submit" name="submit" value="submit" class="btn btn-primary btn-block btn-lg">Register</button>
             </div>
-            <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" class="fw-bold text-body"><u>Login here</u></a></p>
+            <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#" class="fw-bold text-body"><u>Login here</u></a></p>
 
         </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+    <script src="./fileValidation.js"></script>
+
 </body>
 
 </html>

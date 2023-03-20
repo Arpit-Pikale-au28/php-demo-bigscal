@@ -42,9 +42,11 @@
 
     public function insert_values($table, $data) {
         $keys = array_keys($data);
-        $values = array_map(array($this->PDO, 'real_escape_string'), array_values($data));
+        $values = array_values($data);
 
         $query = "INSERT INTO $table (" . implode(',', $keys) . ") VALUES ('" . implode("','", $values) . "')";
+
+        
         if ($this->PDO->query($query) === TRUE) {
             return $this->PDO->lastInsertId();
         } else {
