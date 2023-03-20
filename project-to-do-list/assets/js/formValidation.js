@@ -109,7 +109,7 @@ function fileValidation() {
         
         if (!allowedExtensions.exec(filePath)) {
                 fileError.innerHTML = "";
-                fileError.innerHTML = "Invalid file type";
+                fileError.innerHTML = "Invalid file type. accepted file types jpg/jpeg/PNG only";
                 fileError.style.color = "red";
                 fileInput.value = '';
                 return false;

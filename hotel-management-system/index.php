@@ -1,27 +1,27 @@
-<?php  
-        if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+<?php
+if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            require './models/dbconnection.php';
-            //$hashdpassword =  password_hash($_POST['password'] ,PASSWORD_DEFAULT);
-            $sql = 'select userId, password from adminlogin';
-            $statement = $PDO->query($sql);
+    require './models/dbconnection.php';
+    //$hashdpassword =  password_hash($_POST['password'] ,PASSWORD_DEFAULT);
+    $sql = 'select userId, password from adminlogin';
+    $statement = $PDO->query($sql);
 
-            $credentials = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $credentials = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-            $dbuserId = $credentials[0]['userId'];
-            $dbPassword = $credentials[0]['password'];                         // default username - admin,  password - admin123
-            $validpassword = password_verify($_POST['password'], $dbPassword);
+    $dbuserId = $credentials[0]['userId'];
+    $dbPassword = $credentials[0]['password'];                         // default username - admin,  password - admin123
+    $validpassword = password_verify($_POST['password'], $dbPassword);
 
-            // save the session data and validate user
-            session_start();
-            if ($dbuserId == 'admin' && $validpassword == true) {
-              
-                $_SESSION['userId'] = $_POST['userId'];
-                header("Location:dashboard.php");
-            } else {
-               echo '<script>alert("Invalid Username/Passsword")</script>';
-            }
-        }
+    // save the session data and validate user
+    session_start();
+    if ($dbuserId == 'admin' && $validpassword == true) {
+
+        $_SESSION['userId'] = $_POST['userId'];
+        header("Location:dashboard.php");
+    } else {
+        echo '<script>alert("Invalid Username/Passsword")</script>';
+    }
+}
 ?>
 
 
@@ -50,13 +50,14 @@
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">User Id</label>
-                <input type="text" class="form-control" name="userId" required id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="text" class="form-control" name="userId" placeholder="Enter your Email" required id="exampleInputEmail1" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                <input type="password" name="password" placeholder="Enter your password" class="form-control" id="exampleInputPassword1">
             </div>
+           
             <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

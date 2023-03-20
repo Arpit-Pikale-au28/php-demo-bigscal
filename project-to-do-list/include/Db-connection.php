@@ -41,11 +41,11 @@ function createTables() {
          );',
         'CREATE TABLE IF NOT EXISTS to_do_list.tbl_todo(
         id INT auto_increment primary KEY,
-        todo varchar(100),
+        todo varchar(100) NOT NULL,
         image varchar(50),
-        user_id int,
+        user_id int NOT NULL,
         created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP,
         foreign key(user_id)
         references tbl_user(id)
         on update cascade
